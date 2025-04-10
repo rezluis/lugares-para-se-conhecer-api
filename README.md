@@ -44,17 +44,18 @@ GET http://localhost:3000/place
 ### ⚙️ Variáveis de Ambiente
 
 As variáveis de ambiente já estão definidas no docker-compose.yml, mas você pode criar um arquivo .env para uso local, se necessário:
-
+```bash
 DB_HOST=db
 DB_PORT=5432
 DB_USERNAME=postgres
 DB_PASSWORD=1234
 DB_DATABASE=postgres
+```
 
 ### 🗃️ Banco de Dados
 
 O banco de dados utilizado é o PostgreSQL. Ao iniciar a aplicação com Docker, um container é criado automaticamente com as configurações definidas no docker-compose.yml.
-
+```bash
 lugares-para-se-conhecer-api/
 ├── src/
 │   ├── place/
@@ -65,6 +66,7 @@ lugares-para-se-conhecer-api/
 ├── Dockerfile
 ├── docker-compose.yml
 └── README.md
+```
 
 ### 🧑‍💻 Autor
 
