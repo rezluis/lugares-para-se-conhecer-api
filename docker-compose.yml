@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: lugares-api
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USERNAME: admin
+      DB_PASSWORD: admin
+      DB_DATABASE: lugares
+    volumes:
+      - .:/app
+    networks:
+      - lugares-network
+
+  db:
+    image: postgres:15
+    container_name: lugares-db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: lugares
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - lugares-network
+
+volumes:
+  pgdata:
+
+networks:
+  lugares-network:
+    driver: bridge
